@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hazard Flashing Lights</title>
+  <meta name="description" content="Full-screen hazard flashing lights for your phone. Simple, fast, no ads." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0b0b0b;
+      --surface:  #131313;
+      --border:   rgba(255,255,255,0.07);
+      --amber:    #FF8C00;
+      --red:      #CC2200;
+      --text:     #d4d0cb;
+      --muted:    rgba(212,208,203,0.38);
+      --mono:     'DM Mono', monospace;
+      --sans:     'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+
+    /* ambient glow behind triangle */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(200,30,0,0.18) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glow-pulse 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow-pulse {
+      from { opacity: 0.4; transform: translate(-50%, -58%) scale(0.95); }
+      to   { opacity: 1;   transform: translate(-50%, -58%) scale(1.05); }
+    }
+
+    /* triangle */
+    .triangle-wrap {
+      position: relative;
+      margin-bottom: 52px;
+      animation: tri-flash 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes tri-flash {
+      from { filter: brightness(0.65) drop-shadow(0 0 18px rgba(200,30,0,0.4)); }
+      to   { filter: brightness(1)    drop-shadow(0 0 42px rgba(255,100,0,0.75)); }
+    }
+
+    .triangle-wrap svg {
+      width: clamp(96px, 20vw, 136px);
+      height: auto;
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      animation: fade-up 0.8s ease both;
+    }
+
+    h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(28px, 6vw, 48px);
+      color: #fff;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      animation: fade-up 0.8s 0.1s ease both;
+    }
+
+    h1 span {
+      color: var(--amber);
+    }
+
+    .tagline {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: var(--muted);
+      max-width: 380px;
+      margin: 0 auto 52px;
+      animation: fade-up 0.8s 0.2s ease both;
+    }
+
+    /* ─── BADGES ─── */
+    .badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fade-up 0.8s 0.3s ease both;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .badge:hover {
+      border-color: rgba(255,140,0,0.4);
+      background: #1a1a1a;
+    }
+
+    .badge-icon { flex-shrink: 0; opacity: 0.85; }
+
+    .badge-text-top {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .badge-text-main {
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      display: block;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .footer-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--amber);
+      border-color: rgba(255,140,0,0.4);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="triangle-wrap">
+      <svg viewBox="0 0 120 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="tg" x1="60" y1="0" x2="60" y2="108" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#FF4400"/>
+            <stop offset="100%" stop-color="#BB1500"/>
+          </linearGradient>
+        </defs>
+        <polygon points="60,4 116,104 4,104" fill="url(#tg)"/>
+        <line x1="60" y1="38" x2="60" y2="72" stroke="rgba(0,0,0,0.35)" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="60" cy="84" r="4" fill="rgba(0,0,0,0.35)"/>
+      </svg>
+    </div>
+
+    <p class="hero-label">Available on iOS &amp; Android</p>
+    <h1>Hazard<br /><span>Flashing Lights</span></h1>
+    <p class="tagline">Full-screen hazard light for your phone. Choose your color, press start.</p>
+
+    <div class="badges">
+      <!-- App Store -->
+      <a class="badge" href="#" aria-label="Download on the App Store">
+        <svg class="badge-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="white"/>
+        </svg>
+        <div>
+          <span class="badge-text-top">Download on the</span>
+          <span class="badge-text-main">App Store</span>
+        </div>
+      </a>
+
+      <!-- Google Play -->
+      <a class="badge" href="#" aria-label="Get it on Google Play">
+        <svg class="badge-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3.18 23.76c.3.16.64.19.97.1L14.76 12 3.15.14A1.5 1.5 0 003 .87v22.26c0 .23.06.45.18.63zM16.54 13.78l2.94 2.94-9.96 5.6 7.02-8.54zM20.4 10.3L17.7 8.76 14.76 12l2.94 2.93 2.72-1.53c.78-.44.78-2.62-.02-3.1zM9.52 12L3.18.24l9.96 5.6-3.62 6.16z" fill="white"/>
+        </svg>
+        <div>
+          <span class="badge-text-top">Get it on</span>
+          <span class="badge-text-main">Google Play</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Hazard Flashing Lights</span>
+    <a class="footer-link" href="privacy-policy.html">Privacy Policy</a>
+  </footer>
+
+</body>
+</html>
