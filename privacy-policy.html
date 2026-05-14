@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Hazard Flashing Lights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0b0b;
+      --surface:   #131313;
+      --border:    rgba(255,255,255,0.07);
+      --amber:     #FF8C00;
+      --red:       #CC2200;
+      --text:      #d4d0cb;
+      --muted:     rgba(212,208,203,0.38);
+      --mono:      'DM Mono', monospace;
+      --sans:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .icon-mark {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 28px;
+    }
+
+    .icon-mark svg { width: 100%; height: 100%; }
+
+    h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(22px, 4vw, 28px);
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      font-family: var(--mono);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Hero callout ── */
+    .callout {
+      margin: 48px 0;
+      padding: 32px 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-radius: 4px;
+    }
+
+    .callout-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-family: var(--mono);
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ── No-data grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .grid-item {
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .grid-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── Contact ── */
+    a {
+      color: var(--amber);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,140,0,0.3);
+      transition: border-color 0.2s;
+    }
+    a:hover { border-color: var(--amber); }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 680px;
+      margin: 72px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="icon-mark">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="24,4 44,42 4,42" fill="#CC2200" opacity="0.15"/>
+        <polygon points="24,4 44,42 4,42" fill="none" stroke="#FF8C00" stroke-width="2.5" stroke-linejoin="round"/>
+        <line x1="24" y1="18" x2="24" y2="31" stroke="#FF8C00" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="36.5" r="1.8" fill="#FF8C00"/>
+      </svg>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Hazard Flashing Lights &nbsp;·&nbsp; Effective May 2026</p>
+  </header>
+
+  <main>
+
+    <div class="callout">
+      <div class="callout-label">Summary</div>
+      <p>Hazard Flashing Lights does not collect, store, or share any personal data. The app works entirely on your device with no network connection required.</p>
+    </div>
+
+    <section>
+      <h2>What We Collect</h2>
+      <p>Nothing. The app does not collect any data of any kind.</p>
+      <div class="grid">
+        <div class="grid-item">No personal information</div>
+        <div class="grid-item">No location data</div>
+        <div class="grid-item">No analytics</div>
+        <div class="grid-item">No crash reports</div>
+        <div class="grid-item">No device identifiers</div>
+        <div class="grid-item">No usage tracking</div>
+        <div class="grid-item">No third-party SDKs</div>
+        <div class="grid-item">No account required</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Device Permissions</h2>
+      <p>The app requests permission to adjust screen brightness. This is used solely to maximise brightness when the lights are active, improving visibility. The original brightness is restored when you stop. This value never leaves your device.</p>
+    </section>
+
+    <section>
+      <h2>Third Parties</h2>
+      <p>No data is shared with or transmitted to any third party. The app makes no network requests.</p>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>The app does not collect data from anyone, including children under 13.</p>
+    </section>
+
+    <section>
+      <h2>Changes</h2>
+      <p>If this policy ever changes, the updated version will be posted at this URL with a new effective date.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Questions? Reach us at <a href="mailto:ssefrani@gmail.com">ssefrani@gmail.com</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Hazard Flashing Lights</span>
+    <span>Last updated May 2026</span>
+  </footer>
+
+</body>
+</html>
